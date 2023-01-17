@@ -1,5 +1,8 @@
-﻿namespace MyAspNetCoreApp.Web.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MyAspNetCoreApp.Web.Models
 {
+    
     public class Product
     {
         public int Id { get; set; }
