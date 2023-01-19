@@ -15,9 +15,9 @@ namespace MyAspNetCoreApp.Web.Controllers
 
             if (!_context.Products.Any())
             {
-                _context.Products.Add(new Product { Name = "Kalem 1", Price = 10, Stock = 100, Color = "Red", Height = 10,Width=20 });
-                _context.Products.Add(new Product { Name = "Kalem 2", Price = 15, Stock = 200, Color = "Blue", Height = 10, Width = 20 });
-                _context.Products.Add(new Product { Name = "Kalem 3", Price = 20, Stock = 300, Color = "Purple", Height = 10, Width = 20 });
+                _context.Products.Add(new Product { Name = "Kalem 1", Price = 10, Stock = 100, Color = "Red" });
+                _context.Products.Add(new Product { Name = "Kalem 2", Price = 15, Stock = 200, Color = "Blue" });
+                _context.Products.Add(new Product { Name = "Kalem 3", Price = 20, Stock = 300, Color = "Purple" });
 
                 _context.SaveChanges();
             }
