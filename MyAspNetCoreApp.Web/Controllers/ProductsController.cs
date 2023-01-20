@@ -13,14 +13,14 @@ namespace MyAspNetCoreApp.Web.Controllers
 
             _context = context;
 
-            if (!_context.Products.Any())
-            {
-                _context.Products.Add(new Product { Name = "Kalem 1", Price = 10, Stock = 100, Color = "Red" });
-                _context.Products.Add(new Product { Name = "Kalem 2", Price = 15, Stock = 200, Color = "Blue" });
-                _context.Products.Add(new Product { Name = "Kalem 3", Price = 20, Stock = 300, Color = "Purple" });
+            //if (!_context.Products.Any())
+            //{
+            //    _context.Products.Add(new Product { Name = "Kalem 1", Price = 10, Stock = 100, Color = "Red" });
+            //    _context.Products.Add(new Product { Name = "Kalem 2", Price = 15, Stock = 200, Color = "Blue" });
+            //    _context.Products.Add(new Product { Name = "Kalem 3", Price = 20, Stock = 300, Color = "Purple" });
 
-                _context.SaveChanges();
-            }
+            //    _context.SaveChanges();
+            //}
             
 
         }
@@ -40,11 +40,29 @@ namespace MyAspNetCoreApp.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult Add() 
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SaveProduct()
+        {
+            //1. Yöntem
+            
+            var name = HttpContext.Request.Form["Name"].ToString();
+            var price = decimal.Parse(HttpContext.Request.Form["Price"].ToString());
+            var stock= int.Parse(HttpContext.Request.Form["Stock"].ToString());
+            var color= HttpContext.Request.Form["Color"].ToString();
+
+            Product newProduct=new Product() { Name=name,Price=price, Color=color, Stock = stock };
+            
+            _context.Products.Add(newProduct);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
         public IActionResult Update(int id)
         {
             return View();
