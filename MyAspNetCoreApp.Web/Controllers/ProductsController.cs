@@ -47,16 +47,18 @@ namespace MyAspNetCoreApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveProduct()
+        public IActionResult Add(string Name,decimal Price,int Stock,string Color)
         {
+            //Request Header-Body
+
             //1. Yöntem
             
-            var name = HttpContext.Request.Form["Name"].ToString();
-            var price = decimal.Parse(HttpContext.Request.Form["Price"].ToString());
-            var stock= int.Parse(HttpContext.Request.Form["Stock"].ToString());
-            var color= HttpContext.Request.Form["Color"].ToString();
+            //var name = HttpContext.Request.Form["Name"].ToString();
+            //var price = decimal.Parse(HttpContext.Request.Form["Price"].ToString());
+            //var stock= int.Parse(HttpContext.Request.Form["Stock"].ToString());
+            //var color= HttpContext.Request.Form["Color"].ToString();
 
-            Product newProduct=new Product() { Name=name,Price=price, Color=color, Stock = stock };
+            Product newProduct=new Product() { Name=Name,Price=Price, Color=Color, Stock = Stock };
             
             _context.Products.Add(newProduct);
             _context.SaveChanges();
