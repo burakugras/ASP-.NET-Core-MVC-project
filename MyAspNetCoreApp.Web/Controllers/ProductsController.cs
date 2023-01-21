@@ -64,6 +64,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             _context.Products.Add(newProduct);
             _context.SaveChanges();
 
+            TempData["status"] = "Ürün başarıyla eklendi.";
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -75,11 +76,13 @@ namespace MyAspNetCoreApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Product updateProduct)
+        public IActionResult Update(Product updateProduct,int productId,string type)
         {
+            updateProduct.Id= productId;
             _context.Products.Update(updateProduct);
             _context.SaveChanges();
 
+            TempData["status"] = "Ürün başarıyla güncellendi.";
             return RedirectToAction("Index");
         }
     }
