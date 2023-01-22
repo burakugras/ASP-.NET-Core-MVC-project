@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyAspNetCoreApp.Web.Helpers;
 using MyAspNetCoreApp.Web.Models;
 
 namespace MyAspNetCoreApp.Web.Controllers
@@ -6,26 +7,20 @@ namespace MyAspNetCoreApp.Web.Controllers
     public class ProductsController : Controller
     {
         private AppDbContext _context;
+        private IHelper _helper;
         private readonly ProductRepository _productRepository;
-        public ProductsController(AppDbContext context)
+        public ProductsController(AppDbContext context,IHelper helper)
         {
             _productRepository= new ProductRepository();
-
+            _helper= helper;
             _context = context;
-
-            //if (!_context.Products.Any())
-            //{
-            //    _context.Products.Add(new Product { Name = "Kalem 1", Price = 10, Stock = 100, Color = "Red" });
-            //    _context.Products.Add(new Product { Name = "Kalem 2", Price = 15, Stock = 200, Color = "Blue" });
-            //    _context.Products.Add(new Product { Name = "Kalem 3", Price = 20, Stock = 300, Color = "Purple" });
-
-            //    _context.SaveChanges();
-            //}
-            
+                                 
 
         }
         public IActionResult Index()
         {
+            var text = "Asp .Net";
+
             var products = _context.Products.ToList();
             return View(products);
         }
