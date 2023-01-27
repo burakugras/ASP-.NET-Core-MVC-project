@@ -36,6 +36,8 @@
         </label>
     </div>
     
+    <div class="mb-3 mt-3"
+    <span>Ürün kaç ay satışta kalacak?</span>
     @foreach (var item in ViewBag.Expire as Dictionary<string,int>)
     {
         <div class="form-check">
@@ -44,8 +46,8 @@
             @item.Key
             </label>
         </div>
-
     }
+    </div>
 
     
     <button class="btn btn-primary" type="submit">Ürün Kaydet</button>
