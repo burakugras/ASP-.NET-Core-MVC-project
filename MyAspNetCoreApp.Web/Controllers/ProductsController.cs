@@ -35,26 +35,21 @@ namespace MyAspNetCoreApp.Web.Controllers
         [HttpGet]
         public IActionResult Add() 
         {
-            ViewBag.Expire= new List<string>() { "1 Ay", "3 Ay", "6 Ay", "12 Ay" };
+            ViewBag.Expire = new Dictionary<string, int>()
+            {
+                {"1 Ay",1 },
+                {"3 Ay",3 },
+                {"6 Ay",6 },
+                {"12 Ay",12 },
+            };
+            
 
             return View();
         }
 
         [HttpPost]
         public IActionResult Add(Product newProduct)
-        {
-            //Request Header-Body
-
-            //1. Yöntem
-            
-            //var name = HttpContext.Request.Form["Name"].ToString();
-            //var price = decimal.Parse(HttpContext.Request.Form["Price"].ToString());
-            //var stock= int.Parse(HttpContext.Request.Form["Stock"].ToString());
-            //var color= HttpContext.Request.Form["Color"].ToString();
-
-            //2. Yöntem
-            //Product newProduct=new Product() { Name=Name,Price=Price, Color=Color, Stock = Stock };
-            
+        {              
             _context.Products.Add(newProduct);
             _context.SaveChanges();
 

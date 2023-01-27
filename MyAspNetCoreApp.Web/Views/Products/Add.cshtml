@@ -36,12 +36,12 @@
         </label>
     </div>
     
-    @foreach (var item in ViewBag.Expire as List<string>)
+    @foreach (var item in ViewBag.Expire as Dictionary<string,int>)
     {
         <div class="form-check">
-            <input class="form-check-input" type="radio" asp-for="Expire" value="@item">
+            <input class="form-check-input" type="radio" asp-for="Expire" value="@item.Value">
             <label class="form-check-label" for="flexRadioDefault1">
-            @item
+            @item.Key
             </label>
         </div>
 
