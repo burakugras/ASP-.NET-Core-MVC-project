@@ -35,7 +35,17 @@
             Yayınlansın mı?
         </label>
     </div>
+    
+    @foreach (var item in ViewBag.Expire as List<string>)
+    {
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Expire" value="@item">
+            <label class="form-check-label" for="flexRadioDefault1">
+            @item
+            </label>
+        </div>
 
+    }
 
     
     <button class="btn btn-primary" type="submit">Ürün Kaydet</button>

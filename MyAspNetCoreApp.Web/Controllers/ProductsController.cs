@@ -7,23 +7,17 @@ namespace MyAspNetCoreApp.Web.Controllers
     public class ProductsController : Controller
     {
         private AppDbContext _context;
-        private IHelper _helper;
+
         private readonly ProductRepository _productRepository;
-        public ProductsController(AppDbContext context,IHelper helper)
+        public ProductsController(AppDbContext context)
         {
             _productRepository= new ProductRepository();
-            _helper= helper;
             _context = context;
                                  
 
         }
-        public IActionResult Index([FromServices]IHelper helper2)
+        public IActionResult Index() 
         {
-            var text = "Asp .Net";
-            var upperText = _helper.Upper(text);
-
-            var status=_helper.Equals(helper2);
-
             var products = _context.Products.ToList();
             return View(products);
         }
@@ -41,6 +35,8 @@ namespace MyAspNetCoreApp.Web.Controllers
         [HttpGet]
         public IActionResult Add() 
         {
+            ViewBag.Expire= new List<string>() { "1 Ay", "3 Ay", "6 Ay", "12 Ay" };
+
             return View();
         }
 
