@@ -20,7 +20,8 @@
             <th>Fiyat</th>
             <th>Stok</th>
             <th>Renk</th>
-            <th>İşlem</th>
+            <th>Yayınlansın mı?</th>
+            <th>Süre</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +33,10 @@
             <td>@item.Price</td>
             <td>@item.Stock</td>
             <td>@item.Color</td>
+            <td>
+                @(item.IsPublish ? "Evet":"Hayır")
+            </td>
+            <td>@item.Expire</td>
             <td>
                 <a asp-asp-controller="products" asp-action="remove" asp-route-id="@item.Id">Sil</a>
                 <a asp-asp-controller="products" asp-action="update" asp-route-id="@item.Id">Güncelle</a>
