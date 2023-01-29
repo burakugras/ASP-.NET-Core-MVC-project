@@ -25,8 +25,11 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="Color" class="form-label">Ürün renk :</label>
-        <input class="form-control" asp-for="Color">
+        @*<label asp-for="Color" class="form-label">Ürün renk :</label>
+        <input class="form-control" asp-for="Color">*@
+
+        <select class="form-select" asp-for="Color" asp-items="@ViewBag.ColorSelect"><option value="">Renk seçiniz</option></select>
+        
     </div>
 
     <div class="form-check">
@@ -54,6 +57,10 @@
         <label asp-for="Description">Ürün açıklama</label>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="PublishDate" class="form-label">Ürün yayınlanma tarihi :</label>
+        <input class="form-control" asp-for="PublishDate">
+    </div>
     
     <button class="btn btn-primary" type="submit">Ürün Kaydet</button>
 </form>
