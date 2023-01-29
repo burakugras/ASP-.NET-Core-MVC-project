@@ -295,3 +295,5 @@ C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.
 C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.0\runtimes\win7-x86\native\sqlite3.dll
 C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\PC\source\repos\MyAspNetCoreApp.Web\MyAspNetCoreApp.Web\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
