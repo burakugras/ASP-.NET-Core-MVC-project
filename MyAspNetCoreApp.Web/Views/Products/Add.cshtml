@@ -32,6 +32,7 @@
         <input class="form-control" asp-for="Color">*@
 
         <select class="form-select" asp-for="Color" asp-items="@ViewBag.ColorSelect"><option value="">Renk seçiniz</option></select>
+        <span class="text-danger" asp-validation-for="Color"></span>
         
     </div>
 
@@ -53,6 +54,7 @@
             </label>
         </div>
     }
+    <span class="text-danger" asp-validation-for="Expire"></span>
     </div>
 
     <div class="form-floating" mb-3>
@@ -64,6 +66,7 @@
     <div class="mb-3">
         <label asp-for="PublishDate" class="form-label">Ürün yayınlanma tarihi :</label>
         <input class="form-control" asp-for="PublishDate">
+        <span class="text-danger" asp-validation-for="PublishDate"></span>
     </div>
     
     <button class="btn btn-primary" type="submit">Ürün Kaydet</button>
