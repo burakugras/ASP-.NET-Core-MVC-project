@@ -8,9 +8,11 @@ namespace MyAspNetCoreApp.Web.ViewModels
         public int Id { get; set; }
         [Required(ErrorMessage = "İsim alanı boş bırakılamaz")]
         public string? Name { get; set; }
+        [Range(1, 1000, ErrorMessage = "Fiyat alanı 1 ile 1000 arasında bir değer olmalıdır.")]
         [Required(ErrorMessage ="Fiyat alanı boş bırakılamaz")]    
         public decimal? Price { get; set; }
         [Required(ErrorMessage = "Stok alanı boş bırakılamaz")]
+        [Range(1,200,ErrorMessage ="Stok alanı 1 ile 200 arasında bir değer olmalıdır.")]
         public int? Stock { get; set; }
         [Required(ErrorMessage = "Renk boş bırakılamaz")]
         public string? Color { get; set; }
