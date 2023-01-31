@@ -25,5 +25,8 @@ namespace MyAspNetCoreApp.Web.ViewModels
         [StringLength(300, MinimumLength =50, ErrorMessage = "Açıklama alanı 50 ile 300 karakter arasında olabilir.")]
         [Required(ErrorMessage = "Açıklama boş bırakılamaz")]
         public string Description { get; set; }
+
+        [EmailAddress(ErrorMessage ="Email adresi uygun formatta değil.")]
+        public string EmailAddress { get; set; }
     }
 }
