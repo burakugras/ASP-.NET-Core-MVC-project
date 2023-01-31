@@ -59,24 +59,14 @@ namespace MyAspNetCoreApp.Web.Controllers
 
         [HttpPost]
         public IActionResult Add(ProductViewModel newProduct)
-        {       
+        {
 
-            if (ModelState.IsValid)
-            {
-                _context.Products.Add(_mapper.Map<Product>(newProduct));
-                _context.SaveChanges();
+            //if (!string.IsNullOrEmpty(newProduct.Name) && newProduct.Name.StartsWith("A"))
+            //{
+            //    ModelState.AddModelError(String.Empty, "Ürün ismi A harfi ile başlayamaz.");
+            //}
 
-                TempData["status"] = "Ürün başarıyla eklendi.";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(newProduct.Name) && newProduct.Name.StartsWith("A"))
-                {
-                    ModelState.AddModelError(String.Empty, "Ürün ismi A harfi ile başlayamaz.");
-                }
-
-                ViewBag.Expire = new Dictionary<string, int>()
+            ViewBag.Expire = new Dictionary<string, int>()
             {
                 {"1 Ay",1 },
                 {"3 Ay",3 },
@@ -84,12 +74,35 @@ namespace MyAspNetCoreApp.Web.Controllers
                 {"12 Ay",12 },
             };
 
-                ViewBag.ColorSelect = new SelectList(new List<ColorSelectList>()
+            ViewBag.ColorSelect = new SelectList(new List<ColorSelectList>()
             {
                 new(){ Data="Mavi" ,Value="Mavi" },
                 new(){ Data="Kırmızı" ,Value="Kırmızı" },
                 new(){ Data="Sarı" ,Value="Sarı" }
             }, "Value", "Data");
+
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    throw new Exception("DB hatası");
+                    _context.Products.Add(_mapper.Map<Product>(newProduct));
+                    _context.SaveChanges();
+
+                    TempData["status"] = "Ürün başarıyla eklendi.";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError(String.Empty,"Ürün kaydedilirken bir hata meydana geldi. Lütfen daha sonra tekrar deneyiniz.");
+                    return View();
+                }
+                
+            }
+            else
+            {
+                
                 return View();
             }
             
