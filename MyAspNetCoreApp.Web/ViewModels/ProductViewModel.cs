@@ -10,7 +10,7 @@ namespace MyAspNetCoreApp.Web.ViewModels
         [Required(ErrorMessage = "İsim alanı boş bırakılamaz")]
         public string? Name { get; set; }
 
-        [RegularExpression(@"^[0-9]+(\.[0-9]{1,2})",ErrorMessage ="Fiyat alanında noktadan sonra en fazla 2 basamak olmalıdır.")]
+        //[RegularExpression(@"^[0-9]+(\.[0-9]{1,2})",ErrorMessage ="Fiyat alanında noktadan sonra en fazla 2 basamak olmalıdır.")]
         [Range(1, 1000, ErrorMessage = "Fiyat alanı 1 ile 1000 arasında bir değer olmalıdır.")]
         [Required(ErrorMessage ="Fiyat alanı boş bırakılamaz")]    
         public decimal? Price { get; set; }
