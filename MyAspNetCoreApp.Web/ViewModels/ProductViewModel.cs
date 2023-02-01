@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyAspNetCoreApp.Web.ViewModels
@@ -6,9 +7,11 @@ namespace MyAspNetCoreApp.Web.ViewModels
     public class ProductViewModel
     {
         public int Id { get; set; }
-        [StringLength(50,ErrorMessage ="İsim alanına en fazla 50 karakter girilebilir.")]
+
+        [Remote(action:"HasProductName",controller:"Products")]
+        [StringLength(50, ErrorMessage = "İsim alanına en fazla 50 karakter girilebilir.")]
         [Required(ErrorMessage = "İsim alanı boş bırakılamaz")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null!;
 
         //[RegularExpression(@"^[0-9]+(\.[0-9]{1,2})",ErrorMessage ="Fiyat alanında noktadan sonra en fazla 2 basamak olmalıdır.")]
         [Range(1, 1000, ErrorMessage = "Fiyat alanı 1 ile 1000 arasında bir değer olmalıdır.")]

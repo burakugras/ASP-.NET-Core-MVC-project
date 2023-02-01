@@ -86,7 +86,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             {
                 try
                 {
-                    throw new Exception("db hatası");
+                    
                     _context.Products.Add(_mapper.Map<Product>(newProduct));
                     _context.SaveChanges();
 
@@ -140,6 +140,22 @@ namespace MyAspNetCoreApp.Web.Controllers
 
             TempData["status"] = "Ürün başarıyla güncellendi.";
             return RedirectToAction("Index");
+        }
+
+        
+        [AcceptVerbs("GET","POST")]
+        public IActionResult HasProductName(string Name)
+        {
+            var anyProduct= _context.Products.Any(x=> x.Name.ToLower()==Name.ToLower());
+
+            if (anyProduct)
+            {
+                return Json("Kaydetmeye çalıştığınız ürün ismi veritabanında bulunmaktadır.");
+            }
+            else
+            {
+                return Json(true);
+            }
         }
     }
 }
