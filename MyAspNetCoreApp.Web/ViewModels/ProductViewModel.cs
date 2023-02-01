@@ -32,7 +32,6 @@ namespace MyAspNetCoreApp.Web.ViewModels
         [Required(ErrorMessage = "Açıklama boş bırakılamaz")]
         public string Description { get; set; }
 
-        [EmailAddress(ErrorMessage ="Email adresi uygun formatta değil.")]
-        public string EmailAddress { get; set; }
+        
     }
 }
