@@ -18,6 +18,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             _logger = logger;
             _context = context;
         }
+
                 
 
         public IActionResult Index()
