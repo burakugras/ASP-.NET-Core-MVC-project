@@ -24,6 +24,12 @@
         <partial name="~/PartialViews/_ProductListPartialView.cshtml" model="@ViewBag.productListPartialViewModel" />
     </div>  
 
+    <div class="col-md-4">
+        
+        @await Component.InvokeAsync("ProductList")
+
+    </div>
+
 </div>
 
 
