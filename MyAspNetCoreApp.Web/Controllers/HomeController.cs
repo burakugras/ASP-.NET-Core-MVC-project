@@ -74,6 +74,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             try
             {
                 var visitor = _mapper.Map<Visitor>(visitorViewModel);
+                visitor.Created = DateTime.Now;
                 _context.Visitors.Add(visitor);
                 _context.SaveChanges();
 
@@ -86,8 +87,9 @@ namespace MyAspNetCoreApp.Web.Controllers
                 TempData["result"] = "Yorum kaydedilirken bir hata meydana geldi.";
 
                 return RedirectToAction(nameof(HomeController.Visitor));
-            }
-            
+
+            }      
+
         }
     }
 }
