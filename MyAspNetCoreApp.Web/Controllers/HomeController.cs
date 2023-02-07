@@ -67,12 +67,15 @@ namespace MyAspNetCoreApp.Web.Controllers
         {
             return View();
         }
-        
+
+        [HttpPost]
         public IActionResult SaveVisitorComment(VisitorViewModel visitorViewModel)
         {
             try
             {
                 var visitor = _mapper.Map<Visitor>(visitorViewModel);
+
+                visitor.Created=DateTime.Now;
                 _context.Visitors.Add(visitor);
                 _context.SaveChanges();
 
