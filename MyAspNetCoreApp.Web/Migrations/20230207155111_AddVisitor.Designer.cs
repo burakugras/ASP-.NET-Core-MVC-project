@@ -12,7 +12,7 @@ using MyAspNetCoreApp.Web.Models;
 namespace MyAspNetCoreApp.Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230207125213_AddVisitor")]
+    [Migration("20230207155111_AddVisitor")]
     partial class AddVisitor
     {
         /// <inheritdoc />
@@ -78,8 +78,9 @@ namespace MyAspNetCoreApp.Web.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
