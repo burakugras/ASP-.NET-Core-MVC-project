@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\PC\\source\\repos\\MyAspNetCoreApp.Web\\MyAspNetCoreApp.Web\\wwwroot\\images\\car-100x100.jpg",
+      "PackagePath": "staticwebassets\\images\\car-100x100.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\source\\repos\\MyAspNetCoreApp.Web\\MyAspNetCoreApp.Web\\wwwroot\\images\\car.jpeg",
+      "PackagePath": "staticwebassets\\images\\car.jpeg"
+    },
+    {
       "Id": "C:\\Users\\PC\\source\\repos\\MyAspNetCoreApp.Web\\MyAspNetCoreApp.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
