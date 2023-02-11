@@ -7,7 +7,6 @@ namespace MyAspNetCoreApp.Web.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.PreContent.SetHtmlContent("<i>");
-
             output.PostContent.SetHtmlContent("</li>");
 
         }
