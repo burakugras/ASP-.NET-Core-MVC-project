@@ -33,7 +33,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             ViewBag.page = page;
             ViewBag.pageSize = pageSize;
 
-            return View(products);
+            return View(_mapper.Map<List<ProductViewModel>>(products));
         }
 
         public IActionResult GetById(int productId)
