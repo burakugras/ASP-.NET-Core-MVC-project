@@ -28,10 +28,12 @@ namespace MyAspNetCoreApp.Web.Controllers
 
         public IActionResult Pages(int page,int pageSize)
         {
+            var products = _context.Products.Skip((page-1)*pageSize).Take(3).ToList();
+
             ViewBag.page = page;
             ViewBag.pageSize = pageSize;
 
-            return View();
+            return View(products);
         }
 
         public IActionResult GetById(int productId)
