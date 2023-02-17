@@ -37,10 +37,14 @@ app.UseAuthorization();
 
 //routing identify
 
+//app.MapControllerRoute(
+//    name: "pages",
+//    pattern: "blog/{*article}",
+//    defaults:new {controller="Blog",action="Article"});
+
 app.MapControllerRoute(
-    name: "pages",
-    pattern: "blog/{*article}",
-    defaults:new {controller="Blog",action="Article"});
+    name: "article",
+    pattern: "{controller=Blog}/{action=Article}/{name}/{id}");
 
 app.MapControllerRoute(
     name: "pages",
