@@ -37,6 +37,7 @@ namespace MyAspNetCoreApp.Web.Controllers
             return View(_mapper.Map<List<ProductViewModel>>(products));
         }
 
+
         [Route("urunler/urun/{productid}")]
         public IActionResult GetById(int productId)
         {
