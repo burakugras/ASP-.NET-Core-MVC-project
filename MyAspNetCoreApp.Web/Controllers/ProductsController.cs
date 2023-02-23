@@ -29,7 +29,7 @@ namespace MyAspNetCoreApp.Web.Controllers
         [Route("[controller]/[action]/{page}/{pageSize}",Name ="productpage")]
         public IActionResult Pages(int page,int pageSize)
         {
-            var products = _context.Products.Skip((page-1)*pageSize).Take(3).ToList();
+            var products = _context.Products.Skip((page-1)*pageSize).Take(3).ToList(); 
 
             ViewBag.page = page;
             ViewBag.pageSize = pageSize;
