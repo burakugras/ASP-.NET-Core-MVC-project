@@ -7,6 +7,7 @@ using MyAspNetCoreApp.Web.ViewModels;
 
 namespace MyAspNetCoreApp.Web.Controllers
 {
+    //[Route("[controller]/[action]")]
     public class ProductsController : Controller
     {
         private AppDbContext _context;
